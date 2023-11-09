@@ -19,6 +19,26 @@ def visualize(data, label, centroids):
     plt.axis('off')
     plt.show()
 
+def visualize_3d(data, label, centroids):
+    k = np.amax(label) + 1
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')  # Create a 3D plot
+
+    for cluster in range(k):
+        X = data[label == cluster]
+        centroid = centroids[cluster]
+        marker = 's' if cluster == 0 else ('^' if cluster == 1 else 'o')
+        color = 'hotpink' if cluster == 0 else ('yellow' if cluster == 1 else 'black')
+        label_text = f'Centroid {cluster}'
+
+        ax.scatter(X[:, 0], X[:, 1], X[:, 2], marker=marker, s=40, color=color, label=f'Class {cluster}')
+        ax.scatter(centroid[0], centroid[1], centroid[2], s=200, color=color, marker=marker, label=label_text, edgecolors='black')
+
+    ax.set_title("Data Visualization")
+    ax.legend()
+    plt.show()
+
 def create_data():
     means = [[2, 2], [8, 3], [3, 6]]
     cov = [[1, 0], [0, 1]]
