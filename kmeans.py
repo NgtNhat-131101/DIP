@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.spatial.distance import cdist
-from utils import visualize, visualize_3d
+from utils import visualize, visualize_3d, create_data
 
 class KMeanClustering:
 
@@ -47,10 +47,9 @@ class KMeanClustering:
 
 
 if __name__ == "__main__":
-
-    data = np.random.rand(600, 3)  
+  
     k = 3
-
+    data, label = create_data()
     Kmeans = KMeanClustering(k=k)
     centroids = Kmeans.init_centroids(data)
     print("Centroids without scikit-learn: \n", centroids)
