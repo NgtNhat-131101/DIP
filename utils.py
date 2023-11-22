@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 np.random.seed(100)
+
+# visualize data 2D
 def visualize(data, label, centroids):
     k = np.amax(label) + 1
 
@@ -19,6 +21,7 @@ def visualize(data, label, centroids):
     plt.axis('off')
     plt.show()
 
+# visualize data 3D
 def visualize_3d(data, label, centroids):
     k = np.amax(label) + 1
 
@@ -39,6 +42,7 @@ def visualize_3d(data, label, centroids):
     ax.legend()
     plt.show()
 
+# Generate data
 def create_data():
     means = [[2, 2], [8, 3], [3, 6]]
     cov = [[1, 0], [0, 1]]

@@ -48,15 +48,17 @@ class KMeanClustering:
 
 if __name__ == "__main__":
 
-    data = np.random.rand(600, 600, 3)  
+    data = np.random.rand(600, 3)  
     k = 3
 
     Kmeans = KMeanClustering(k=k)
     centroids = Kmeans.init_centroids(data)
-    print("Centroids without scikit-learn: ", centroids)
-
+    print("Centroids without scikit-learn: \n", centroids)
+    #visualize(data, labels[-1], centroids)
     labels, centroids = Kmeans.fit(data, iterations=300)
     print("Final Centroids without scikit-learn: ")
     print(centroids)
-
-    visualize_3d(data, labels[-1], centroids)
+    
+    
+    #visualize_3d(data, labels[-1], centroids)
+    visualize(data, labels[-1], centroids)

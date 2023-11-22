@@ -30,7 +30,6 @@ class ImageCompressorApp:
         self.image_path = filedialog.askopenfilename(filetypes=[("Image files", "*.png *.jpg *.jpeg *.bmp *.gif")])
         if self.image_path:
             img = Image.open(self.image_path)
-            img = img.resize((300, 300), Image.ANTIALIAS)
             self.photo = ImageTk.PhotoImage(img)
             self.compressed_label.config(image=self.photo)
             self.compressed_label.image = self.photo
